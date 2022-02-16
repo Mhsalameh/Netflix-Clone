@@ -1,4 +1,3 @@
-import React, { Row, Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
@@ -23,6 +22,8 @@ export default function Movie(props) {
     handleShow();
     setChosenMovie(movieData);
   }
+ 
+
   return (
     <>
       <Card style={{ width: "18rem", backgroundColor: "#000000" }}>
@@ -53,6 +54,7 @@ export default function Movie(props) {
           show={show}
           handleClose={handleClose}
           chosenMovie={chosenMovie}
+          updateMovies={props.updateMovies}
         />
       )}
     </>
