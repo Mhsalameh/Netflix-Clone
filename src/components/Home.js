@@ -13,6 +13,10 @@ export default function Home() {
     }
   };
 
+ 
+  
+
+   
 
   function updateMovies(newMovie,id){
     let updates=movies.map(movie=>{

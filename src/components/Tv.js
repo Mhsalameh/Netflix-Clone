@@ -1,15 +1,15 @@
 import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
-import ModalMovie from './ModalMovie.js'
+import ModalTv from './ModalTv'
 import { Badge } from "react-bootstrap";
 
-export default function Movie(props) {
-  // console.log(props.movie)
-  const movie = props.movie;
+export default function Tv(props) {
+  // console.log(props.tv)
+  const tv = props.tv;
   const [readMore, setReadMore] = useState(true);
   const [show, setShow] = useState(false);
-  const [chosenMovie, setChosenMovie] = useState();
+  const [chosenTv, setChosenTv] = useState();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -18,10 +18,10 @@ export default function Movie(props) {
     setReadMore(!readMore);
   }
 
-  function handleShowModal(movieData) {
-    console.log(movieData);
+  function handleShowModal(tvData) {
+    console.log(tvData);
     handleShow();
-    setChosenMovie(movieData);
+    setChosenTv(tvData);
   }
  
 
@@ -30,12 +30,12 @@ export default function Movie(props) {
       <Card style={{ width: "18rem", backgroundColor: "#000000" }}>
         <Card.Img
           variant="top"
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w500${tv.poster_path}`}
         />
         <Card.Body>
-          <Card.Title style={{color:"#EEEEEE"}}> {movie.title} <Badge pill className="title-bg" bg="dark">{movie.release_date}</Badge> </Card.Title>
+          <Card.Title style={{color:"#EEEEEE"}}> {tv.original_name}  <Badge pill className="title-bg" bg="dark">{tv.first_air_date}</Badge> </Card.Title>
           <Card.Text style={{color:"#EEEEEE"}}>
-            {readMore ? movie.overview.slice(0, 95) : movie.overview}
+            {readMore ? tv.overview.slice(0, 95) : tv.overview}
             <span style={{color:"#C84B31" , fontSize:"smaller"}} onClick={toggleReadMore}>
               {readMore ? "...more" : " less"}
             </span>
@@ -43,19 +43,19 @@ export default function Movie(props) {
           <Button style={{backgroundColor:"#2D4263", }}
             variant="primary"
             onClick={() => {
-              handleShowModal(movie);
+              handleShowModal(tv);
             }}
           >
             Add to favorites
           </Button>
         </Card.Body>
       </Card>
-      {chosenMovie && (
-        <ModalMovie
+      {chosenTv && (
+        <ModalTv
           show={show}
           handleClose={handleClose}
-          chosenMovie={chosenMovie}
-          updateMovies={props.updateMovies}
+          chosenTv={chosenTv}
+          updateSeries={props.updateSeries}
         />
       )}
     </>
