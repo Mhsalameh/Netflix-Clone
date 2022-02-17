@@ -44,3 +44,12 @@ h2{
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.modal-btn{
+  display: flex;
+  justify-content: space-around;
+}
+
+.title-bg{
+  font-size: small;
+}

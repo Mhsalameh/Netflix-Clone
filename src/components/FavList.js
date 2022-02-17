@@ -48,7 +48,7 @@ export default function FavList(props) {
         <Card.Body>
           <Card.Title style={{color:"#EEEEEE"}}> {movie.title}  </Card.Title>
           <Card.Text style={{color:"#EEEEEE"}}>
-                            {`Comment: ${movie.comment}`}
+                            {`Comment: ${movie.comment} `}
           </Card.Text>
           <Button style={{backgroundColor:"#2D4263", }}
             variant="primary"

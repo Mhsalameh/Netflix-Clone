@@ -13,6 +13,11 @@ export default function Navbar() {
               </LinkContainer>{" "}
             </Nav.Item>
             <Nav.Item>
+              <LinkContainer to="/tv">
+                <Nav.Link eventKey={3}>Series</Nav.Link>
+              </LinkContainer>
+            </Nav.Item>
+            <Nav.Item>
               <LinkContainer to="/favorite">
                 <Nav.Link eventKey={2}>Favorites</Nav.Link>
               </LinkContainer>
