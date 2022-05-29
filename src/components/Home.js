@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
-import MovieList from "./MovieList";
-
+import { useState, useEffect, useContext } from 'react';
+import MovieList from './MovieList';
+import { Context } from '../context/context';
 export default function Home() {
+  const { page, setPage } = useContext(Context);
   const [movies, setMovies] = useState();
   const getTrending = async () => {
     try {
@@ -9,31 +10,26 @@ export default function Home() {
       const data = await response.json();
       setMovies(data);
     } catch (error) {
-      console.log("error ", error);
+      console.log('error ', error);
     }
   };
 
- 
-  
-
-   
-
-  function updateMovies(newMovie,id){
-    let updates=movies.map(movie=>{
-      if(movie.id==id){
-        movie.comment=newMovie.comment;
-        return movie
+  function updateMovies(newMovie, id) {
+    let updates = movies.map((movie) => {
+      if (movie.id == id) {
+        movie.comment = newMovie.comment;
+        return movie;
+      } else {
+        return movie;
       }
-      else {
-        return movie
-      }
-    })
+    });
     setMovies(updates);
-
   }
   useEffect(() => {
     getTrending();
   }, []);
 
-  return <>{movies && <MovieList movies={movies} updateMovies={updateMovies} />}</>;
+  return (
+    <>{movies && <MovieList movies={movies} updateMovies={updateMovies} />}</>
+  );
 }
