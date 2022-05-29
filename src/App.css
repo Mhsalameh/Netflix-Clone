@@ -4,7 +4,11 @@ body {
 h2{
   color: #eeeeee;
 }
-
+.pages-container{
+  display:flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
 .movie-container {
   display: flex;
   flex-wrap: wrap;
@@ -13,8 +17,10 @@ h2{
 
 .home-heading{
   text-align: center;
-  color:#541212;
+  color:#eeeeee;
   position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 2;
 }
 
@@ -37,6 +43,7 @@ h2{
 
 .nav-items {
   display: flex;
+  z-index: 3;
 }
 
 .fav-container{
