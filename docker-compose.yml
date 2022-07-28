@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  netflix:
+      build: .
+      hostname: nodejsserver
+      ports:
+        - 3001:3001
+      networks:
+        - moviesapp_web
+        - movies_app_db
+      environment:
+        - REACT_APP_SERVER=http://app:3000
+        - PORT=3001
+
+networks:
+  moviesapp_web:
+  movies_app_db:
